@@ -41,7 +41,7 @@ Os exercícios:
 	  ``` 
          int nroDigit(int n)
 	  ``` 
-1. Implemente um métodos que recebe um String e retorna um ArrayList com todas as permutações deste String.
+1. Implemente um método que recebe um String e retorna um ArrayList com todas as permutações deste String.
 	  ``` 
          ArrayList<String> permutations(String s)
 	  ``` 

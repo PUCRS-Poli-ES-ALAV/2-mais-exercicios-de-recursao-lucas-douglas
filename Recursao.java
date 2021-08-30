@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Recursao {
 
     public static int i(int n) {
@@ -85,10 +87,87 @@ public class Recursao {
         }   
     }
 
+    //====================================
 
+    public static Integer vii(ArrayList<Integer> n) {
+ 
+        if(n.size() == 0) {
+            return -1;
+        }
+        else {
+            return n.remove(0) + vii(n);
+        }      
+    }
+    //====================================
 
+    public static int viii(ArrayList<Integer> n1, int max) {
 
+        int tmp = n1.remove(0);
+        if(n1.size() == 0) {
+            return -1;
+        }
+         else if(n1.size() == 1) {
+            System.out.println(n1);
+            return 1;
+        }
+        
+        /*for(int i=0; i<n1.size(); i++) {
+            if(n1.get(i) < n1.get(i+1)) {
+                return n1.remove(i) + viii(n1, max);  
+            }*/
+        if(tmp > max) {
+            max = tmp;
+            return viii(n1, max);
+        }
+        return viii(n1, max);  
+        }
+    
+        
+    //====================================
 
+    public static boolean ix(String str, String match) {
+
+        if(str == null || match == null) {
+            throw new IllegalArgumentException("Vazio.");
+        }
+
+        if (str.contains(match)) {
+            return true;
+        }
+        return false;
+    }
+
+    //====================================
+
+    public static int x(long n) {
+
+        n = Math.abs(n);
+		if (n == 0) { 
+            return 1;
+        }
+		else {
+            return (int) (Math.log10 (n) + 1); 
+        }
+    }
+    
+
+    public static ArrayList<String> xi(String n1) {
+        
+        int tam = n1.length();
+        if(n1 == "") {
+            return null;
+        }
+        else if(n1.length() == 0) {
+            throw new IllegalArgumentException("Inexistente.");
+        }
+        else {
+            for(int i=0; i<n1.length(); i++) {
+                return xi(n1.charAt(i), n1.substring(0, i) + n1.substring(i+1, tam));
+            }
+        }
+    }
+
+    //====================================
 
     public static void main (String[] agrs) throws Exception {
         System.out.println("i " + i(5));
@@ -97,6 +176,17 @@ public class Recursao {
         System.out.println("iv " + iv(5,3));
         System.out.println("v " + v("suahg"));
         System.out.println("vi " + vi(2));
-    
+        ArrayList<Integer> n = new ArrayList<Integer>();
+        n.add(50); n.add(15); n.add(22);
+        System.out.println("vii " + vii(n));
+        ArrayList<Integer> n1 = new ArrayList<Integer>();
+        n1.add(10); n1.add(32); n1.add(30); int max = 44;
+        System.out.println("viii " + viii(n1, max));
+        System.out.println("ix " + ix("olaolaolasuyasghaau", "olaolaolasuyasghaau"));
+        System.out.println("x " + x(216353783));
+        ArrayList<String> n2 = new ArrayList<String>(3);
+        n2.add("João"); n2.add("Lucas"); n2.add("Marcos");
+        System.out.println("xi " + xi(n2));
+
     }
 }
